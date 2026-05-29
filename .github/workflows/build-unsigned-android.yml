@@ -171,7 +171,7 @@ jobs:
           apk_path=src-tauri/gen/android/app/build/outputs/apk/universal/release
           arm64_apk=Readest_${version}_arm64.apk
           pnpm tauri android build -t aarch64
-          cp ${apk_path}/app-universal-release.apk $arm64_apk
+          cp ${apk_path}/app-universal-release-unsigned.apk $arm64_apk
 
           echo "Uploading $arm64_apk to GitHub release"
           gh release upload ${{ needs.get-release.outputs.release_tag }} $arm64_apk --clobber
